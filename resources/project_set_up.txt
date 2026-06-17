@@ -1,0 +1,30 @@
+﻿Tech Stack
+Next.js because it comes with a frontend and backend that prevents our Google Sheets API credentials from being leaked to anyone who opens our site.
+* Browser – contains components & Recharts (for creating graphs)
+* Next.js API route – lives on my server and keeps credentials a secret
+* Google Sheets API – reads data from the Master Data Sheet
+
+
+Master Sheet Set Up
+Each cohort year should exist inside its own tab within the master sheet. For example, the 2025 summer internship surveys & data exist inside the “2025” tab and so forth.
+
+
+This allows the dashboard to pull data from specific years.
+
+
+Architecture
+ngcp-dashboard/
+app/
+page.jsx – main dashboard page
+api/
+survey/
+route.js – fetches the survey data
+components/
+CohortSelector.jsx – dropdown menu to pick the year
+EngagementCharts.jsx – pre & post charts, FLE line chart, fun bus chart
+ProfessionalGrowth.jsx
+CareerPathChart.jsx
+MentorExperienceChart.jsx
+        lib/
+                sheets.js – helper function for calling the Google Sheets API
+                .env.local – secret credentials (key for accessing the survey data)
