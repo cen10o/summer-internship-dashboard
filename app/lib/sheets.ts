@@ -20,7 +20,7 @@ export async function getSurveyData(spreadsheetId, tab) {
     // creates a response that contains requested survey data from the Google sheet.
     const response = await sheets.spreadsheets.values.get({
         spreadsheetId: spreadsheetId,
-        range: `${tab}!A:Z`
+        range: `${tab}!A:AZ`
     })
 
     // returns row data of the request survey.
